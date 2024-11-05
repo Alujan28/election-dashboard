@@ -1,23 +1,27 @@
 import React from 'react';
 import { Bar, Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import './ElectionChart.css';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, ChartDataLabels);
 
 const chartData = {
     labels: [
-        'ANURA KUMARA DISSANAYAKE',
-        'SAJITH PREMADASA',
-        'RANIL WICKREMESINGHE',
-        'NAMAL RAJAPAKSA',
-        'ARIYANETHIRAN PAKKIYASELVAM',
-        'DILITH JAYAWEERA',
-        'K.K. PIYADASA',
-        'DISSANAYAKA MUDIYANSELAGE BANDARANAYAKE'
+        'A K D',
+        'SAJITH',
+        'RANIL',
+        'NAMAL'
     ],
-    votes: [5634915, 4363035, 2299767, 342781, 226343, 122396, 47543, 30660]
+    votes: [5634915, 4363035, 2299767, 342781]
 };
+
+const colors = [
+    'rgb(212, 0, 0)',
+    'rgb(0, 151, 57)',
+    'rgb(0, 128, 0)', 
+    'rgb(138, 21, 56)' 
+];
 
 const barChartData = {
     labels: chartData.labels,
@@ -25,8 +29,8 @@ const barChartData = {
         {
             label: 'Votes',
             data: chartData.votes,
-            backgroundColor: 'rgba(75, 192, 192, 0.6)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: colors,
+            borderColor: colors.map(color => color.replace('rgb', 'rgba').replace(')', ', 1)')),
             borderWidth: 1,
         },
     ],
@@ -37,16 +41,7 @@ const pieChartData = {
     datasets: [
         {
             data: chartData.votes,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
-                'rgba(255, 159, 64, 0.6)',
-                'rgba(100, 200, 255, 0.6)',
-                'rgba(200, 100, 255, 0.6)',
-            ],
+            backgroundColor: colors,
             borderColor: 'rgba(255, 255, 255, 1)',
             borderWidth: 1,
         },
@@ -55,11 +50,86 @@ const pieChartData = {
 
 const ElectionChart = () => {
     return (
-        <div style={{ width: '100%', height: '400px' }}>
-            <h2>Election Votes Bar Chart</h2>
-            <Bar data={barChartData} options={{ responsive: true, maintainAspectRatio: false }} />
+        <div className="election-chart-container">
+            <h2>Election Votes Horizontal Bar Chart</h2>
+            <div className="chart-wrapper">
+                <Bar 
+                    data={barChartData} 
+                    options={{
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                ticks: {
+                                    display: false
+                                }
+                            },
+                            y: {
+                                display: false,
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                labels: {
+                                    generateLabels: (chart) => {
+                                        const datasets = chart.data.datasets;
+                                        return chart.data.labels.map((label, index) => {
+                                            const dataset = datasets[0];
+                                            return {
+                                                text: label,
+                                                fillStyle: dataset.backgroundColor[index],
+                                                strokeStyle: dataset.borderColor[index],
+                                                hidden: false,
+                                                index: index,
+                                            };
+                                        });
+                                    },
+                                },
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.chart.data.labels[context.dataIndex]}: ${context.raw.toLocaleString()} votes`;
+                                    }
+                                }
+                            },
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'right',
+                                formatter: (value, context) => context.chart.data.labels[context.dataIndex],
+                                color: '#ffffff',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    }} 
+                />
+            </div>
             <h2>Election Votes Pie Chart</h2>
-            <Pie data={pieChartData} options={{ responsive: true, maintainAspectRatio: false }} />
+            <div className="chart-wrapper">
+                <Pie data={pieChartData} options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.chart.data.labels[context.dataIndex];
+                                }
+                            }
+                        },
+                        datalabels: {
+                            display: false 
+                        }
+                    }
+                }} />
+            </div>
         </div>
     );
 };
