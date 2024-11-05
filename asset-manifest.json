@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/election-dashboard/static/css/main.6e1cb2be.css",
+    "main.js": "/election-dashboard/static/js/main.b130e13e.js",
+    "static/media/animation.gif": "/election-dashboard/static/media/animation.bc95083f91196a19f6b9.gif",
+    "static/media/logo.jpg": "/election-dashboard/static/media/logo.8a0ca7a32ca8aa9e8358.jpg",
+    "static/media/district.csv": "/election-dashboard/static/media/district.dff7e2d7f1710a633b8c.csv",
+    "index.html": "/election-dashboard/index.html",
+    "main.6e1cb2be.css.map": "/election-dashboard/static/css/main.6e1cb2be.css.map",
+    "main.b130e13e.js.map": "/election-dashboard/static/js/main.b130e13e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e1cb2be.css",
+    "static/js/main.b130e13e.js"
+  ]
+}
