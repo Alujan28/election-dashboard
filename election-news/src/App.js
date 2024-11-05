@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './img/logo.jpg';
 import './App.css';
 import gifFile from './img/animation.gif';
