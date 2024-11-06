@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/election-news/static/css/main.869b0e7c.css",
-    "main.js": "/election-news/static/js/main.9de08cb1.js",
-    "static/media/animation.gif": "/election-news/static/media/animation.bc95083f91196a19f6b9.gif",
-    "static/media/logo.jpg": "/election-news/static/media/logo.8a0ca7a32ca8aa9e8358.jpg",
-    "static/media/district.csv": "/election-news/static/media/district.dff7e2d7f1710a633b8c.csv",
-    "index.html": "/election-news/index.html",
-    "main.869b0e7c.css.map": "/election-news/static/css/main.869b0e7c.css.map",
-    "main.9de08cb1.js.map": "/election-news/static/js/main.9de08cb1.js.map"
+    "main.css": "/election-dashboard/static/css/main.fbba7eeb.css",
+    "main.js": "/election-dashboard/static/js/main.06739180.js",
+    "static/media/animation.gif": "/election-dashboard/static/media/animation.bc95083f91196a19f6b9.gif",
+    "static/media/logo.jpg": "/election-dashboard/static/media/logo.db814af9bf89d7202601.jpg",
+    "static/media/district.csv": "/election-dashboard/static/media/district.dff7e2d7f1710a633b8c.csv",
+    "index.html": "/election-dashboard/index.html",
+    "main.fbba7eeb.css.map": "/election-dashboard/static/css/main.fbba7eeb.css.map",
+    "main.06739180.js.map": "/election-dashboard/static/js/main.06739180.js.map"
   },
   "entrypoints": [
-    "static/css/main.869b0e7c.css",
-    "static/js/main.9de08cb1.js"
+    "static/css/main.fbba7eeb.css",
+    "static/js/main.06739180.js"
   ]
 }
