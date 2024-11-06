@@ -1,50 +1,41 @@
 .district-selection-container {
   max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-
-.district-selection-container:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  padding: 5%;
 }
 
 .select {
-  margin-bottom: 20px;
-}
-
-.select label {
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: block;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 @media (max-width: 768px) {
   .district-selection-container {
-      margin: 10px;
-      padding: 15px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 50vh;  */
   }
 
   .select {
-      margin-bottom: 15px;
-  }
-
-  .select label {
-      font-size: 1rem; 
+    width: 90%; 
+    margin-bottom: 10px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1200px) {
   .district-selection-container {
-      padding: 10px;
+    width: 80%;  
   }
 
-  .select label {
-      font-size: 0.9rem; 
+  .select {
+    width: 50%;  
   }
+}
+
+.form-label {
+  font-size: 16px;
+  color: #4B0082;
+  display: block;
+  margin-bottom: 5px;
 }

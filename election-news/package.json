@@ -2,7 +2,7 @@
   "name": "election-news",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Alujan28.github.io/election-news", 
+  "homepage": "https://Alujan28.github.io/election-news",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -24,6 +24,7 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.8.2",
     "react-select-search": "^4.1.8",
+    "semantic-ui-react": "^2.1.5",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "url": "^0.11.4",

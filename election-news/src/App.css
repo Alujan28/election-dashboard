@@ -12,8 +12,8 @@
 }
 
 .logo {
-  width: 100px;
-  height: 60px;
+  width: 200px;
+  height: 200px;
   margin-bottom: 20px;
 }
 
@@ -37,7 +37,7 @@
 
   .logo {
     width: 100px;
-    height: 60px;
+    height: 100px;
   }
 
   .gif {
@@ -59,7 +59,7 @@
 
   .logo {
     width: 100px;
-    height: 60px;
+    height: 100px;
   }
 
   .gif {
